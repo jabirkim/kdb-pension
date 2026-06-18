@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KDB 영리한 변액연금 — 평생 월수령액 정리표</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, "Malgun Gothic", "맑은 고딕", sans-serif;
+    background: #f4f5f7; color: #1f2933; line-height: 1.6;
+    padding: 24px 14px; -webkit-text-size-adjust: 100%;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; }
+  h1 { font-size: 22px; color: #5a2a82; margin-bottom: 4px; }
+  .sub { color: #5a6b7b; font-size: 14px; margin-bottom: 20px; }
+  .prod {
+    background: #5a2a82; color: #fff; border-radius: 12px;
+    padding: 16px 18px; margin-bottom: 18px;
+  }
+  .prod .name { font-size: 18px; font-weight: 700; }
+  .prod .tag { font-size: 13px; opacity: .85; margin-top: 3px; }
+  .box {
+    background: #fff; border-radius: 12px; padding: 16px 18px;
+    margin-bottom: 18px; box-shadow: 0 1px 3px rgba(0,0,0,.06);
+  }
+  .box h2 { font-size: 16px; color: #5a2a82; margin-bottom: 10px; }
+  .cond { font-size: 13.5px; color: #3a4a5a; }
+  .cond li { margin-left: 18px; margin-bottom: 3px; }
+  table { width: 100%; border-collapse: collapse; margin-top: 6px; font-size: 14px; }
+  caption {
+    text-align: left; font-size: 16px; font-weight: 700;
+    color: #5a2a82; padding: 4px 0 10px;
+  }
+  th, td { padding: 9px 8px; text-align: center; border-bottom: 1px solid #e4e8ec; }
+  thead th { background: #f0e8f7; color: #5a2a82; font-size: 13px; }
+  tbody th { background: #f7f9fb; font-weight: 700; color: #1f2933; }
+  td .big { font-weight: 700; font-size: 15px; color: #5a2a82; }
+  td small { color: #8a98a6; font-size: 11px; }
+  .na { color: #c0c8d0; }
+  .t55 caption { color:#1a7a4f } .t55 thead th{ background:#e6f5ee; color:#1a7a4f }
+  .t60 caption { color:#5a2a82 } .t60 thead th{ background:#f0e8f7; color:#5a2a82 }
+  .t65 caption { color:#9a4b00 } .t65 thead th{ background:#fbeee0; color:#9a4b00 }
+  .key { background:#fff8e6; border:1px solid #f0e0a8; }
+  .key li { margin-left: 18px; margin-bottom: 5px; font-size: 14px; }
+  .disc {
+    background:#fdeeee; border:1px solid #f3c6c6; color:#a23b3b;
+    font-size:12px; border-radius:8px; padding:7px 10px; margin-bottom:10px;
+  }
+  .warn { font-size: 12.5px; color: #7a8794; }
+  .warn li { margin-left: 16px; margin-bottom: 3px; }
+  b.hl { color: #c0392b; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>영리한 변액연금 평생 월수령액 정리표</h1>
+  <p class="sub">자녀 가입 기준 · 월 100만원씩 납입 · 가입나이 × 납입기간 × 수령시작 비교</p>
+
+  <div style="display:flex;gap:7px;flex-wrap:wrap;margin-bottom:16px;font-size:12.5px;font-weight:600">
+    <a href="https://jabirkim.github.io/kdb-pension/" style="padding:6px 11px;border-radius:999px;background:#eaf1f8;color:#0b3d6b;text-decoration:none">더!행복드림 변액 7%</a>
+    <a href="yeongrihan.html" style="padding:6px 11px;border-radius:999px;background:#5a2a82;color:#fff;text-decoration:none">영리한변액 5%</a>
+    <a href="plus.html" style="padding:6px 11px;border-radius:999px;background:#e3f3ef;color:#0b6b5f;text-decoration:none">더행복플러스 100세</a>
+  </div>
+
+  <div class="disc" style="font-size:13px;padding:10px 12px;">⚠️ 공식 최저보증(연 5% 단리) 기반 <b>자체 추산치</b>입니다 — 확정값은 반드시 KDB생명 가입설계서(예시표)로 확인하세요.</div>
+
+  <div class="prod">
+    <div class="name">(무)KDB 영리한 변액연금보험</div>
+    <div class="tag">기납입보험료 연 5% 단리로 최저연금기준금액 적립 · 실적배당 종신연금 종신보증 · 가입나이 0~15세(자녀)</div>
+  </div>
+
+  <div class="box">
+    <h2>계산 조건</h2>
+    <ul class="cond">
+      <li>월 <b>100만원</b> 납입 → 10년납 = 총 <b>1.2억</b>, 20년납 = 총 <b>2.4억</b></li>
+      <li><b>자녀 가입(0~15세)</b> · 남자 기준 (여자는 약 5% 적게 나옴)</li>
+      <li><b>평생(종신) 연금</b> — 죽을 때까지 매달 수령, 펀드 실적과 무관하게 보증</li>
+      <li>펀드 수익 0% 가정한 <b>최저보증(연 5% 단리) 바닥값</b> (펀드 잘되면 더 받음)</li>
+      <li>"거치" = 납입 끝난 뒤 수령 시작까지 <b>기다리는 기간</b> — 자녀상품이라 거치가 매우 김</li>
+    </ul>
+  </div>
+
+  <div class="box t55">
+    <div class="disc">⚠️ 공식 최저보증(5% 단리) 기반 <b>자체 추산치</b> — 확정값은 KDB생명 가입설계서 확인</div>
+    <table>
+      <caption>① 55세부터 평생 수령</caption>
+      <thead><tr><th>가입나이</th><th>10년납 (1.2억)</th><th>20년납 (2.4억)</th></tr></thead>
+      <tbody>
+        <tr><th>0세</th><td><span class="big">약 147만원</span><br><small>10년납 + 45년거치</small></td><td><span class="big">약 273만원</span><br><small>20년납 + 35년거치</small></td></tr>
+        <tr><th>5세</th><td><span class="big">약 137만원</span><br><small>10년납 + 40년거치</small></td><td><span class="big">약 252만원</span><br><small>20년납 + 30년거치</small></td></tr>
+        <tr><th>10세</th><td><span class="big">약 126만원</span><br><small>10년납 + 35년거치</small></td><td><span class="big">약 231만원</span><br><small>20년납 + 25년거치</small></td></tr>
+        <tr><th>15세</th><td><span class="big">약 116만원</span><br><small>10년납 + 30년거치</small></td><td><span class="big">약 210만원</span><br><small>20년납 + 20년거치</small></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="box t60">
+    <div class="disc">⚠️ 공식 최저보증(5% 단리) 기반 <b>자체 추산치</b> — 확정값은 KDB생명 가입설계서 확인</div>
+    <table>
+      <caption>② 60세부터 평생 수령</caption>
+      <thead><tr><th>가입나이</th><th>10년납 (1.2억)</th><th>20년납 (2.4억)</th></tr></thead>
+      <tbody>
+        <tr><th>0세</th><td><span class="big">약 188만원</span><br><small>10년납 + 50년거치</small></td><td><span class="big">약 350만원</span><br><small>20년납 + 40년거치</small></td></tr>
+        <tr><th>5세</th><td><span class="big">약 175만원</span><br><small>10년납 + 45년거치</small></td><td><span class="big">약 325만원</span><br><small>20년납 + 35년거치</small></td></tr>
+        <tr><th>10세</th><td><span class="big">약 163만원</span><br><small>10년납 + 40년거치</small></td><td><span class="big">약 300만원</span><br><small>20년납 + 30년거치</small></td></tr>
+        <tr><th>15세</th><td><span class="big">약 150만원</span><br><small>10년납 + 35년거치</small></td><td><span class="big">약 275만원</span><br><small>20년납 + 25년거치</small></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="box t65">
+    <div class="disc">⚠️ 공식 최저보증(5% 단리) 기반 <b>자체 추산치</b> — 확정값은 KDB생명 가입설계서 확인</div>
+    <table>
+      <caption>③ 65세부터 평생 수령</caption>
+      <thead><tr><th>가입나이</th><th>10년납 (1.2억)</th><th>20년납 (2.4억)</th></tr></thead>
+      <tbody>
+        <tr><th>0세</th><td><span class="big">약 224만원</span><br><small>10년납 + 55년거치</small></td><td><span class="big">약 420만원</span><br><small>20년납 + 45년거치</small></td></tr>
+        <tr><th>5세</th><td><span class="big">약 210만원</span><br><small>10년납 + 50년거치</small></td><td><span class="big">약 392만원</span><br><small>20년납 + 40년거치</small></td></tr>
+        <tr><th>10세</th><td><span class="big">약 196만원</span><br><small>10년납 + 45년거치</small></td><td><span class="big">약 364만원</span><br><small>20년납 + 35년거치</small></td></tr>
+        <tr><th>15세</th><td><span class="big">약 182만원</span><br><small>10년납 + 40년거치</small></td><td><span class="big">약 336만원</span><br><small>20년납 + 35년거치</small></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="box key">
+    <h2>한눈에 보는 핵심</h2>
+    <ul class="key">
+      <li><b>자녀를 일찍 가입시킬수록</b> 많이 받음 — 단리 5%가 평생 붙는 구조라 거치기간이 곧 수익.</li>
+      <li>0세 가입 1.2억(10년납)이 65세 수령이면 월 <b>약 224만원</b> — 같은 돈도 늦게 넣으면 확 줄어듦.</li>
+      <li>20년납(2.4억)은 10년납(1.2억) 대비 월 수령액이 약 <b>1.8~1.9배</b>.</li>
+      <li>전부 <b>평생(종신)</b> 보증 — 자녀의 노후·목적자금까지 대물림 설계 가능.</li>
+    </ul>
+  </div>
+
+  <div class="box">
+    <h2 style="color:#7a8794">주의사항</h2>
+    <ul class="warn">
+      <li>위 금액은 <b>최저보증(연 5% 단리)</b>로 계산한 <b>어림치</b> — 정확한 확정값은 KDB생명 <b>가입설계서(예시표)</b>가 최종입니다.</li>
+      <li>거치기간이 40~55년으로 <b>매우 장기</b>인 가정이라, 실제 상품의 적립·전환 방식에 따라 차이가 클 수 있습니다.</li>
+      <li>중간에 해지하면 이 금액 무효 → 펀드값(사업비·보증비용 빠진 낮은 금액)만 받습니다.</li>
+      <li>여자는 기대수명이 길어 월 수령액이 약 5% 적게 책정됩니다.</li>
+      <li>가입나이 0~15세(자녀), 납입 5~30년, 연금개시·거치 조건은 가입설계서 기준을 따릅니다.</li>
+    </ul>
+  </div>
+
+  <div class="disc" style="font-size:13px;padding:10px 12px;">⚠️ 공식 최저보증(연 5% 단리) 기반 <b>자체 추산치</b>입니다 — 확정값은 반드시 KDB생명 가입설계서(예시표)로 확인하세요.</div>
+
+  <p class="sub" style="text-align:center;margin-top:8px">출처: (무)KDB 영리한 변액연금보험 — KDB생명 공식 상품안내(기납입보험료 연 5% 단리 최저연금기준금액·실적배당 종신연금)</p>
+
+</div>
+</body>
+</html>
