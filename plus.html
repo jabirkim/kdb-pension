@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KDB생명 더!행복플러스연금(보증형) — 100세 보증지급 평생연금표</title>
+<title>KDB생명 더!행복플러스연금(보증형) — 100세 만기 보증연금표</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
@@ -44,6 +44,7 @@
   .t65 caption { color:#9a4b00 } .t65 thead th{ background:#fbeee0; color:#9a4b00 }
   .key { background:#fff8e6; border:1px solid #f0e0a8; }
   .key li { margin-left: 18px; margin-bottom: 5px; font-size: 14px; }
+  .ok { background:#eaf6ef; border:1px solid #bfe3cd; color:#1a7a4f; font-size:12.5px; border-radius:8px; padding:8px 11px; margin-bottom:10px; }
   .disc {
     background:#fdeeee; border:1px solid #f3c6c6; color:#a23b3b;
     font-size:12px; border-radius:8px; padding:7px 10px; margin-bottom:10px;
@@ -56,8 +57,8 @@
 <body>
 <div class="wrap">
 
-  <h1>더!행복플러스연금 100세 보증지급 평생연금표</h1>
-  <p class="sub">월 100만원씩 납입 · 연금기준금액 단리 7%(20년)/5% · 100세 보증지급형 · 가입나이 × 납입기간 × 수령시작 비교</p>
+  <h1>더!행복플러스연금 100세 만기 보증연금표</h1>
+  <p class="sub">월 100만원씩 납입 · 단리 7%(20년)/5% + 장기유지가산율 · 100세 만기 금액보증연금 · 최저보증 가정</p>
 
   <div style="display:flex;gap:7px;flex-wrap:wrap;margin-bottom:16px;font-size:12.5px;font-weight:600">
     <a href="https://jabirkim.github.io/kdb-pension/" style="padding:6px 11px;border-radius:999px;background:#eaf1f8;color:#0b3d6b;text-decoration:none">더!행복드림 변액 7%</a>
@@ -65,63 +66,60 @@
     <a href="plus.html" style="padding:6px 11px;border-radius:999px;background:#0b6b5f;color:#fff;text-decoration:none">더행복플러스 100세</a>
   </div>
 
-  <div class="disc" style="font-size:13px;padding:10px 12px;">⚠️ 공식 연금기준금액 보증적립률(단리 7%·20년/5%)·100세 보증지급 기준 <b>자체 추산치</b>입니다 — 확정값은 반드시 KDB생명 가입설계서로 확인하세요.</div>
+  <div class="ok">✅ <b>공식 가입설계서로 검증</b> — 43세·5년납·55세개시·월100만 = 연 398만(공식)과 계산 일치. 아래는 같은 공식 방법(단리 7%/5% 누적 → 장기유지가산 → 기본지급률)으로 산출.</div>
 
   <div class="prod">
     <div class="name">(무)더!행복플러스연금보험(보증형)</div>
-    <div class="tag">연금기준금액 <b>단리 7%(첫 20년)/5%(이후)</b> 보증적립 · <b>100세 보증지급형 종신연금</b>(10·20·30년형도 선택) · 펀드 없는 금액보증형 · 판매 2025.02.01.</div>
+    <div class="tag">연금기준금액 <b>단리 7%(20년)/5%</b> 보증적립 + <b>장기유지가산율</b>(최대 35%) · <b>100세 만기</b> 금액보증연금(종신 아님, 100세 도달 시 종료) · 펀드 없는 금액보증형 · 판매 2025.02.01.</div>
   </div>
 
   <div class="box">
-    <h2>계산 조건</h2>
+    <h2>계산 조건 (공식 방법)</h2>
     <ul class="cond">
       <li>월 <b>100만원</b> 납입 → 10년납 = 총 <b>1.2억</b>, 15년납 = 총 <b>1.8억</b></li>
-      <li>연금기준금액이 <b class="hl">단리 7%(첫 20년)/5%(이후)</b>로 보증적립 → 그 기준으로 평생연금 산정</li>
-      <li><b>100세 보증지급형</b> — 연금개시 후 100세까지는 사망해도 유족에게 미지급 연금을 <b>보증지급</b>, 생존 시 그 이후도 평생</li>
-      <li><b>남자</b> 기준 (여자는 약 5% 적게 나옴) · 펀드 위험 없는 금액보증형</li>
-      <li>각 칸: <b>월 수령액</b> + <span class="tot">100세까지 총 보증수령액</span></li>
-      <li>"거치" = 납입 끝난 뒤 수령 시작까지 기다리는 기간(최소 5년)</li>
+      <li>① 연금기준금액 = 기납입보험료를 <b class="hl">단리 7%(첫 20년)/5%(이후)</b>로 적립</li>
+      <li>② <b>장기유지가산율</b> 가산 — (연금개시−가입)이 20~24년 13% / 25~29년 23.5% / 30~39년 27% / 40년+ 35%</li>
+      <li>③ 연지급액 = 연금기준금액 × <b>기본지급률</b>(남자 55세 3.98% / 60세 4.57% / 65세 4.95%) ×(1+가산율)</li>
+      <li><b>100세까지 매년 동일 지급 후 종료</b>(만기) · 최저보증이율 가정(현 신공시 2.0%면 이보다 더 받음)</li>
+      <li>각 칸: <b>월 수령액</b> + <span class="tot">100세까지 총수령액</span> · "거치"=납입후 대기(최소 5년)</li>
     </ul>
   </div>
 
   <div class="box t55">
-    <div class="disc">⚠️ 단리 7%/5%·100세 보증지급 기준 <b>자체 추산치</b> — 확정값은 가입설계서 확인</div>
     <table>
       <caption>① 55세부터 100세까지 수령</caption>
       <thead><tr><th>가입나이</th><th>10년납 (1.2억)</th><th>15년납 (1.8억)</th></tr></thead>
       <tbody>
-        <tr><th>30세</th><td><span class="big">약 97만원</span><br><span class="tot">100세까지 약 5.22억</span><br><small>10년납 + 15년거치</small></td><td><span class="big">약 134만원</span><br><span class="tot">100세까지 약 7.24억</span><br><small>15년납 + 10년거치</small></td></tr>
-        <tr><th>35세</th><td><span class="big">약 86만원</span><br><span class="tot">100세까지 약 4.66억</span><br><small>10년납 + 10년거치</small></td><td><span class="big">약 118만원</span><br><span class="tot">100세까지 약 6.39억</span><br><small>15년납 + 5년거치</small></td></tr>
-        <tr><th>40세</th><td><span class="big">약 72만원</span><br><span class="tot">100세까지 약 3.86억</span><br><small>10년납 + 5년거치</small></td><td class="na">가입 불가<br><small>거치기간 부족</small></td></tr>
+        <tr><th>30세</th><td><span class="big">약 113만원</span><br><span class="tot">100세까지 약 6.11억</span><br><small>10년납 + 15년거치</small></td><td><span class="big">약 157만원</span><br><span class="tot">100세까지 약 8.47억</span><br><small>15년납 + 10년거치</small></td></tr>
+        <tr><th>35세</th><td><span class="big">약 92만원</span><br><span class="tot">100세까지 약 4.99억</span><br><small>10년납 + 10년거치</small></td><td><span class="big">약 127만원</span><br><span class="tot">100세까지 약 6.84억</span><br><small>15년납 + 5년거치</small></td></tr>
+        <tr><th>40세</th><td><span class="big">약 68만원</span><br><span class="tot">100세까지 약 3.66억</span><br><small>10년납 + 5년거치</small></td><td class="na">가입 불가<br><small>거치기간 부족</small></td></tr>
       </tbody>
     </table>
   </div>
 
   <div class="box t60">
-    <div class="disc">⚠️ 단리 7%/5%·100세 보증지급 기준 <b>자체 추산치</b> — 확정값은 가입설계서 확인</div>
     <table>
       <caption>② 60세부터 100세까지 수령</caption>
       <thead><tr><th>가입나이</th><th>10년납 (1.2억)</th><th>15년납 (1.8억)</th></tr></thead>
       <tbody>
-        <tr><th>30세</th><td><span class="big">약 128만원</span><br><span class="tot">100세까지 약 6.13억</span><br><small>10년납 + 20년거치</small></td><td><span class="big">약 178만원</span><br><span class="tot">100세까지 약 8.56억</span><br><small>15년납 + 15년거치</small></td></tr>
-        <tr><th>35세</th><td><span class="big">약 115만원</span><br><span class="tot">100세까지 약 5.53억</span><br><small>10년납 + 15년거치</small></td><td><span class="big">약 160만원</span><br><span class="tot">100세까지 약 7.66억</span><br><small>15년납 + 10년거치</small></td></tr>
-        <tr><th>40세</th><td><span class="big">약 103만원</span><br><span class="tot">100세까지 약 4.93억</span><br><small>10년납 + 10년거치</small></td><td><span class="big">약 141만원</span><br><span class="tot">100세까지 약 6.76억</span><br><small>15년납 + 5년거치</small></td></tr>
-        <tr><th>45세</th><td><span class="big">약 85만원</span><br><span class="tot">100세까지 약 4.09억</span><br><small>10년납 + 5년거치</small></td><td class="na">가입 불가<br><small>거치기간 부족</small></td></tr>
+        <tr><th>30세</th><td><span class="big">약 148만원</span><br><span class="tot">100세까지 약 7.11억</span><br><small>10년납 + 20년거치</small></td><td><span class="big">약 207만원</span><br><span class="tot">100세까지 약 9.94억</span><br><small>15년납 + 15년거치</small></td></tr>
+        <tr><th>35세</th><td><span class="big">약 130만원</span><br><span class="tot">100세까지 약 6.24억</span><br><small>10년납 + 15년거치</small></td><td><span class="big">약 180만원</span><br><span class="tot">100세까지 약 8.65억</span><br><small>15년납 + 10년거치</small></td></tr>
+        <tr><th>40세</th><td><span class="big">약 106만원</span><br><span class="tot">100세까지 약 5.09억</span><br><small>10년납 + 10년거치</small></td><td><span class="big">약 145만원</span><br><span class="tot">100세까지 약 6.98억</span><br><small>15년납 + 5년거치</small></td></tr>
+        <tr><th>45세</th><td><span class="big">약 78만원</span><br><span class="tot">100세까지 약 3.74억</span><br><small>10년납 + 5년거치</small></td><td class="na">가입 불가<br><small>거치기간 부족</small></td></tr>
       </tbody>
     </table>
   </div>
 
   <div class="box t65">
-    <div class="disc">⚠️ 단리 7%/5%·100세 보증지급 기준 <b>자체 추산치</b> — 확정값은 가입설계서 확인</div>
     <table>
       <caption>③ 65세부터 100세까지 수령</caption>
       <thead><tr><th>가입나이</th><th>10년납 (1.2억)</th><th>15년납 (1.8억)</th></tr></thead>
       <tbody>
-        <tr><th>30세</th><td><span class="big">약 157만원</span><br><span class="tot">100세까지 약 6.59억</span><br><small>10년납 + 25년거치</small></td><td><span class="big">약 221만원</span><br><span class="tot">100세까지 약 9.27억</span><br><small>15년납 + 20년거치</small></td></tr>
-        <tr><th>35세</th><td><span class="big">약 143만원</span><br><span class="tot">100세까지 약 6.00억</span><br><small>10년납 + 20년거치</small></td><td><span class="big">약 200만원</span><br><span class="tot">100세까지 약 8.39억</span><br><small>15년납 + 15년거치</small></td></tr>
-        <tr><th>40세</th><td><span class="big">약 129만원</span><br><span class="tot">100세까지 약 5.42억</span><br><small>10년납 + 15년거치</small></td><td><span class="big">약 179만원</span><br><span class="tot">100세까지 약 7.51억</span><br><small>15년납 + 10년거치</small></td></tr>
-        <tr><th>45세</th><td><span class="big">약 115만원</span><br><span class="tot">100세까지 약 4.83억</span><br><small>10년납 + 10년거치</small></td><td><span class="big">약 158만원</span><br><span class="tot">100세까지 약 6.63억</span><br><small>15년납 + 5년거치</small></td></tr>
-        <tr><th>50세</th><td><span class="big">약 95만원</span><br><span class="tot">100세까지 약 4.01억</span><br><small>10년납 + 5년거치</small></td><td class="na">가입 불가<br><small>거치기간 부족</small></td></tr>
+        <tr><th>30세</th><td><span class="big">약 176만원</span><br><span class="tot">100세까지 약 7.40억</span><br><small>10년납 + 25년거치</small></td><td><span class="big">약 248만원</span><br><span class="tot">100세까지 약 10.41억</span><br><small>15년납 + 20년거치</small></td></tr>
+        <tr><th>35세</th><td><span class="big">약 160만원</span><br><span class="tot">100세까지 약 6.74억</span><br><small>10년납 + 20년거치</small></td><td><span class="big">약 224만원</span><br><span class="tot">100세까지 약 9.42억</span><br><small>15년납 + 15년거치</small></td></tr>
+        <tr><th>40세</th><td><span class="big">약 141만원</span><br><span class="tot">100세까지 약 5.91억</span><br><small>10년납 + 15년거치</small></td><td><span class="big">약 195만원</span><br><span class="tot">100세까지 약 8.20억</span><br><small>15년납 + 10년거치</small></td></tr>
+        <tr><th>45세</th><td><span class="big">약 115만원</span><br><span class="tot">100세까지 약 4.82억</span><br><small>10년납 + 10년거치</small></td><td><span class="big">약 158만원</span><br><span class="tot">100세까지 약 6.62억</span><br><small>15년납 + 5년거치</small></td></tr>
+        <tr><th>50세</th><td><span class="big">약 84만원</span><br><span class="tot">100세까지 약 3.54억</span><br><small>10년납 + 5년거치</small></td><td class="na">가입 불가<br><small>거치기간 부족</small></td></tr>
       </tbody>
     </table>
   </div>
@@ -129,26 +127,26 @@
   <div class="box key">
     <h2>한눈에 보는 핵심</h2>
     <ul class="key">
-      <li><b>펀드 없이 단리 7%/5% 보증적립</b> — 변액의 위험 없이 고정 고이율로 연금기준금액이 불어남.</li>
-      <li>30세·15년납(1.8억)·65세개시면 월 <b>약 221만원</b>, <b class="hl">100세까지 약 9.27억</b> — 낸 돈(1.8억)의 약 5배.</li>
-      <li><b>100세까지 보증지급</b> — 일찍 사망해도 100세까지 남은 연금을 유족이 받음.</li>
-      <li>일찍 넣고 늦게 받을수록 유리(거치 동안 7%/5% 단리가 계속 붙음). 15년납은 10년납 대비 약 <b>1.4배</b>.</li>
+      <li><b>장기유지가산율이 핵심</b> — 일찍 가입해 거치를 20년 이상 끌수록 지급률에 13~35%가 얹힘.</li>
+      <li>30세·15년납(1.8억)·65세개시 = 월 <b>약 248만원</b>, <b class="hl">100세까지 약 10.4억</b> — 낸 돈(1.8억)의 약 5.8배.</li>
+      <li><b>100세까지 받고 종료(만기)</b> — 도중 사망해도 100세까지 남은 연금을 유족이 보증수령.</li>
+      <li>펀드 없는 <b>금액보증형</b>이라 변액 같은 손실 위험 없음. 표는 <b>최저보증 가정</b>(신공시 2.0%면 더 받음).</li>
     </ul>
   </div>
 
   <div class="box">
     <h2 style="color:#7a8794">주의사항</h2>
     <ul class="warn">
-      <li>위 금액은 연금기준금액 <b>단리 7%(20년)/5%</b> 보증적립·100세 보증지급으로 산정한 <b>어림치</b> — 정확한 확정값은 KDB생명 <b>가입설계서(예시표)</b>가 최종입니다.</li>
-      <li>10·20·30년 보증지급형을 택하면 보증기간이 짧아지는 대신 월 수령액이 달라질 수 있습니다(위 표는 100세 보증지급형 기준).</li>
-      <li>중간에 해지하면 이 금액 무효 → 해약환급금(최저보증이율 1.0%/0.5% 적용)만 받습니다.</li>
-      <li>여자는 기대수명이 길어 월 수령액이 약 5% 적게 책정됩니다. 가입나이 15~70세, 연금개시·최소거치 5년 조건은 가입설계서 기준.</li>
+      <li>위 금액은 공식 방법(단리 7%/5%·장기유지가산·기본지급률)·<b>최저보증이율 가정</b>으로 산출한 값 — 실제 확정값은 KDB생명 <b>가입설계서</b>가 최종입니다.</li>
+      <li><b>100세 만기형</b> — 100세(99세 계약해당일까지) 받고 종료, 그 이후엔 지급 없습니다(종신 아님).</li>
+      <li>현행 <b>신공시이율(연금Ⅳ) 2.0%</b> 가정이면 수령액이 위 표(최저보증)보다 늘어납니다.</li>
+      <li>중간 해지하면 무효 → 해약환급금만. 여자는 기본지급률이 낮아 약 5% 적게 책정. 가입 15~70세·최소거치 5년.</li>
     </ul>
   </div>
 
-  <div class="disc" style="font-size:13px;padding:10px 12px;">⚠️ 연금기준금액 보증적립률(단리 7%·20년/5%)·100세 보증지급 기준 <b>자체 추산치</b>입니다 — 확정값은 반드시 KDB생명 가입설계서로 확인하세요.</div>
+  <div class="disc" style="font-size:13px;padding:10px 12px;">⚠️ 공식 방법·요율 기반 <b>자체 산출(최저보증 가정)</b>입니다 — 확정값은 반드시 KDB생명 가입설계서로 확인하세요.</div>
 
-  <p class="sub" style="text-align:center;margin-top:8px">출처: (무)더!행복플러스연금보험(보증형) 상품요약서(2025.02.01) · 연금기준금액 단리 7%(20년)/5% 보증적립 · 100세 보증지급형 종신연금 · 가입 15~70세</p>
+  <p class="sub" style="text-align:center;margin-top:8px">출처: (무)더!행복플러스연금보험(보증형) 가입설계서(설계 26088B1A15708FF, 2026.06.18) · 기본지급률·장기유지가산율·단리 7%/5% 공식 반영 · 100세 만기</p>
 
 </div>
 </body>
