@@ -1,48 +1,37 @@
 <!DOCTYPE html><html lang="ko"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title>KDB 연금표 — 로테이션</title>
+<title>KDB 연금표 — 모아보기</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
 body{font-family:-apple-system,"Malgun Gothic","맑은 고딕",sans-serif;background:#1f2933;display:flex;flex-direction:column;height:100vh;overflow:hidden}
 header{color:#fff;padding:9px 10px;display:flex;align-items:center;gap:8px}
 .title{font-size:14.5px;font-weight:700;flex:1;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.btn{background:rgba(255,255,255,.16);color:#fff;border:none;border-radius:9px;min-width:38px;height:34px;font-size:15px;cursor:pointer}
+.btn{background:rgba(255,255,255,.16);color:#fff;border:none;border-radius:9px;min-width:40px;height:36px;font-size:16px;cursor:pointer}
+.btn:active{background:rgba(255,255,255,.3)}
 .dots{display:flex;gap:7px;justify-content:center;padding:7px 0 9px}
-.dot{height:9px;width:9px;border-radius:50%;background:rgba(255,255,255,.32);cursor:pointer;transition:.2s}
-.dot.on{background:#fff;width:24px;border-radius:5px}
+.dot{height:10px;width:10px;border-radius:50%;background:rgba(255,255,255,.32);cursor:pointer;transition:.2s}
+.dot.on{background:#fff;width:26px;border-radius:5px}
 .stage{flex:1;position:relative;background:#f4f5f7}
 iframe{width:100%;height:100%;border:0;background:#f4f5f7}
-.bar{height:3px;background:rgba(255,255,255,.15)}
-.bar>i{display:block;height:100%;width:0;background:#62b89a;transition:width .15s linear}
 </style></head><body>
 <header>
   <button class="btn" id="prev">◀</button>
   <div class="title" id="title"></div>
-  <button class="btn" id="play">⏸</button>
   <button class="btn" id="next">▶</button>
 </header>
 <div class="dots" id="dots"></div>
-<div class="bar"><i id="prog"></i></div>
 <div class="stage"><iframe id="fr" title="연금표"></iframe></div>
 <script>
 var S=[{n:"더!행복드림 변액 7%",u:"dream.html"},{n:"영리한변액 5%",u:"yeongrihan.html"},{n:"더행복플러스 100세 만기",u:"plus.html"}];
-var i=0,playing=true,INT=8000,t0=0,raf=null,timer=null;
-var fr=document.getElementById("fr"),title=document.getElementById("title"),dots=document.getElementById("dots"),prog=document.getElementById("prog"),play=document.getElementById("play");
-S.forEach(function(s,k){var d=document.createElement("div");d.className="dot";d.onclick=function(){go(k);reset()};dots.appendChild(d)});
+var i=0;
+var fr=document.getElementById("fr"),title=document.getElementById("title"),dots=document.getElementById("dots");
+S.forEach(function(s,k){var d=document.createElement("div");d.className="dot";d.onclick=function(){go(k)};dots.appendChild(d)});
 function render(){fr.src=S[i].u;title.textContent=(i+1)+" / "+S.length+"  ·  "+S[i].n;
   var ds=dots.children;for(var k=0;k<ds.length;k++)ds[k].className="dot"+(k===i?" on":"")}
 function go(n){i=(n%S.length+S.length)%S.length;render()}
-function next(){go(i+1)}function prev(){go(i-1)}
-function tick(ts){if(!t0)t0=ts;var p=(ts-t0)/INT;prog.style.width=Math.min(p,1)*100+"%";
-  if(p>=1){t0=ts;next()}raf=requestAnimationFrame(tick)}
-function reset(){t0=0;prog.style.width="0%"}
-function loop(){cancelAnimationFrame(raf);if(playing){t0=0;raf=requestAnimationFrame(tick)}}
-document.getElementById("next").onclick=function(){next();reset()};
-document.getElementById("prev").onclick=function(){prev();reset()};
-play.onclick=function(){playing=!playing;play.textContent=playing?"⏸":"▶";if(playing){loop()}else{cancelAnimationFrame(raf);prog.style.width="0%"}};
-document.addEventListener("keydown",function(e){if(e.key==="ArrowRight"){next();reset()}if(e.key==="ArrowLeft"){prev();reset()}});
-// 헤더 영역 스와이프
-var x0=null;document.querySelector(".stage").addEventListener("touchstart",function(e){x0=e.touches[0].clientX},{passive:true});
-render();loop();
+document.getElementById("next").onclick=function(){go(i+1)};
+document.getElementById("prev").onclick=function(){go(i-1)};
+document.addEventListener("keydown",function(e){if(e.key==="ArrowRight")go(i+1);if(e.key==="ArrowLeft")go(i-1)});
+render();
 </script></body></html>
