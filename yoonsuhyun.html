@@ -21,10 +21,13 @@
   }
   .hero {
     background: linear-gradient(135deg,#0b6b5f,#14947d);
-    color:#fff; border-radius:16px; padding:18px; margin-bottom:18px;
+    color:#fff; border-radius:16px; padding:16px; margin-bottom:18px;
   }
-  .hero .big { font-size: 24px; font-weight: 800; margin: 4px 0; }
-  .hero .small { font-size: 13px; opacity: .92; }
+  .hero .big {
+    font-size: 20px; font-weight: 800; margin: 4px 0;
+    line-height: 1.4; word-break: keep-all;
+  }
+  .hero .small { font-size: 13px; opacity: .92; line-height:1.45; }
   .ok, .warn, .disc {
     border-radius:10px; padding:10px 12px; font-size:13px; margin-bottom:10px;
   }
@@ -65,7 +68,7 @@
   @media (max-width:720px) {
     .split { grid-template-columns:1fr; }
     h1 { font-size:21px; }
-    .hero .big { font-size:21px; }
+    .hero .big { font-size:18px; }
   }
 </style>
 </head>
@@ -77,9 +80,9 @@
 
   <div class="hero">
     <div>한줄 결론</div>
-    <div class="big">현재 계약은 보장 역할, 새 제안은 노후 연금 역할입니다.</div>
-    <div class="big">월 50만원 연금안을 오래 유지하면</div>
-    <div class="big">60세 이후 기준금액이 약 1억 4,800만원대로 커지는 구조입니다.</div>
+    <div class="big">지금 계약 가치는 약 4,300만원입니다.</div>
+    <div class="big">월 50만원 연금축을 오래 유지하면</div>
+    <div class="big">60세 기준금액은 약 1억 4,800만원대입니다.</div>
     <div class="small">90세까지 연금 수령 가정 시 누적 약 2억 4천만원대 추정</div>
   </div>
 
