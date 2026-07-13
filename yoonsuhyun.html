@@ -23,47 +23,40 @@
     background:linear-gradient(135deg,#0b6b5f,#14947d);
     color:#fff; border-radius:18px; padding:16px 14px; margin-bottom:14px;
   }
-  .hero-top { font-size:12px; opacity:.9; margin-bottom:10px; }
-  .hero-main {
-    font-size:28px; font-weight:900; line-height:1.2; letter-spacing:-0.02em;
-    margin-bottom:8px; word-break:keep-all;
+  .hero-top { font-size:12px; opacity:.9; margin-bottom:8px; }
+  .hero-main { font-size:26px; font-weight:900; line-height:1.2; margin-bottom:6px; word-break:keep-all; }
+  .hero-desc { font-size:14px; line-height:1.45; opacity:.96; word-break:keep-all; }
+  .badge {
+    display:inline-block; font-size:11px; font-weight:800; border-radius:999px;
+    padding:4px 8px; margin-right:6px;
   }
-  .hero-desc {
-    font-size:15px; line-height:1.45; opacity:.96; word-break:keep-all;
-  }
+  .b-gray { background:#eef2f7; color:#475569; }
+  .b-blue { background:#dbeafe; color:#1d4ed8; }
+  .b-green { background:#dcfce7; color:#047857; }
+  .graphbox { background:#fff; border-radius:18px; padding:14px; margin-bottom:14px; box-shadow:0 1px 3px rgba(0,0,0,.06); }
+  .barrow { margin-bottom:16px; }
+  .barlabel { display:flex; justify-content:space-between; gap:10px; margin-bottom:6px; align-items:flex-end; }
+  .barleft { min-width:0; }
+  .barleft .title { font-size:13px; font-weight:800; color:#1f2933; }
+  .barleft .desc { font-size:11.5px; color:#7a8794; }
+  .barvalue { font-size:20px; font-weight:900; line-height:1; letter-spacing:-0.02em; white-space:nowrap; }
+  .track { width:100%; height:18px; background:#e6eaef; border-radius:999px; overflow:hidden; }
+  .fill { height:100%; border-radius:999px; }
+  .grayfill { background:linear-gradient(90deg,#64748b,#94a3b8); }
+  .bluefill { background:linear-gradient(90deg,#2563eb,#60a5fa); }
+  .greenfill { background:linear-gradient(90deg,#059669,#34d399); }
   .ok, .warn {
     border-radius:12px; padding:10px 12px; font-size:12.5px; margin-bottom:10px;
   }
   .ok { background:#eaf6ef; border:1px solid #bfe3cd; color:#1a7a4f; }
   .warn { background:#fff8e6; border:1px solid #f0e0a8; color:#7a5b00; }
-  .grid3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; }
-  .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
-  .stat {
-    background:#fff; border-radius:14px; padding:14px; border:1px solid #e5e7eb;
-    box-shadow:0 1px 2px rgba(0,0,0,.03);
-  }
-  .stat .label { font-size:12px; color:#637282; margin-bottom:5px; }
-  .stat .value { font-size:22px; font-weight:900; line-height:1.15; letter-spacing:-0.02em; word-break:keep-all; }
-  .stat .meta { font-size:11.5px; color:#7a8794; margin-top:5px; }
-  .stat.current { background:#f8fafc; border-top:4px solid #64748b; }
-  .stat.sixty { background:#eff6ff; border-top:4px solid #3b82f6; }
-  .stat.ninety { background:#ecfdf5; border-top:4px solid #10b981; }
-  .stat.wide { grid-column: span 1; }
-  .compare {
-    display:grid; grid-template-columns:1fr 1fr; gap:10px;
-  }
+  .compare { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
   .card {
     border-radius:16px; padding:14px; border:1px solid #e5e7eb; background:#fff;
   }
   .card.current { border-top:5px solid #64748b; }
   .card.new { border-top:5px solid #0b6b5f; }
-  .chip {
-    display:inline-block; font-size:11.5px; font-weight:800; border-radius:999px;
-    padding:4px 8px; margin-bottom:10px;
-  }
-  .chip.gray { background:#eef2f7; color:#475569; }
-  .chip.green { background:#e8f6f1; color:#0b6b5f; }
-  .card h3 { font-size:16px; margin-bottom:10px; }
+  .card h3 { font-size:16px; margin:8px 0 10px; }
   .k { font-size:12px; color:#637282; margin-top:8px; }
   .v { font-size:24px; font-weight:900; line-height:1.15; margin-top:2px; word-break:keep-all; }
   .v.gray { color:#475569; }
@@ -79,51 +72,69 @@
   @media (max-width:720px) {
     h1 { font-size:20px; }
     .hero-main { font-size:24px; }
-    .hero-desc { font-size:14px; }
-    .grid3 { grid-template-columns:1fr 1fr; }
-    .grid2, .compare { grid-template-columns:1fr; }
-    .stat.wide { grid-column:1 / -1; }
-    .stat .value, .v { font-size:21px; }
+    .hero-desc { font-size:13px; }
+    .compare { grid-template-columns:1fr; }
+    .barvalue, .v { font-size:19px; }
+    .barlabel { align-items:flex-start; flex-direction:column; }
   }
 </style>
 </head>
 <body>
 <div class="wrap">
   <h1>윤수현 고객님 비교</h1>
-  <p class="sub">현재 계약과 새 연금안의 차이만 먼저 보이게 정리했습니다.</p>
+  <p class="sub">현재 계약과 새 연금안을 그래프로 먼저 비교했습니다.</p>
 
   <div class="hero">
-    <div class="hero-top">한눈 요약</div>
-    <div class="hero-main">지금 4,300만원 수준</div>
-    <div class="hero-desc">월 50만원 연금안을 오래 유지하면<br>60세 기준 약 1억4,800만원대<br>90세 누적 약 2억4천만원대 추정</div>
+    <div class="hero-top">핵심만 먼저</div>
+    <div class="hero-main">지금 4,305.8만원</div>
+    <div class="hero-desc">오래 유지 시<br>60세 기준 약 1억4,837.5만원<br>90세 누적 약 2억4,083.5만원 추정</div>
   </div>
 
-  <div class="grid3">
-    <div class="stat current">
-      <div class="label">지금</div>
-      <div class="value">4,305.8만원</div>
-      <div class="meta">현재 해약 시 실수령 기준</div>
+  <div class="graphbox">
+    <h2>그래프로 보면</h2>
+
+    <div class="barrow">
+      <div class="barlabel">
+        <div class="barleft">
+          <div class="title"><span class="badge b-gray">현재</span>지금 계약 실수령</div>
+          <div class="desc">해약환급금 기준 현재 보이는 가치</div>
+        </div>
+        <div class="barvalue" style="color:#475569;">4,305.8만원</div>
+      </div>
+      <div class="track"><div class="fill grayfill" style="width:17.9%"></div></div>
     </div>
-    <div class="stat sixty">
-      <div class="label">60세</div>
-      <div class="value">1억 4,837.5만원</div>
-      <div class="meta">연금기준금액 추정</div>
+
+    <div class="barrow">
+      <div class="barlabel">
+        <div class="barleft">
+          <div class="title"><span class="badge b-blue">새 연금</span>60세 기준금액</div>
+          <div class="desc">월 50만원, 장기 유지 가정</div>
+        </div>
+        <div class="barvalue" style="color:#2563eb;">1억4,837.5만원</div>
+      </div>
+      <div class="track"><div class="fill bluefill" style="width:61.6%"></div></div>
     </div>
-    <div class="stat ninety wide">
-      <div class="label">90세</div>
-      <div class="value">2억 4,083.5만원</div>
-      <div class="meta">누적 연금수령액 추정</div>
+
+    <div class="barrow" style="margin-bottom:4px">
+      <div class="barlabel">
+        <div class="barleft">
+          <div class="title"><span class="badge b-green">새 연금</span>90세 누적 연금</div>
+          <div class="desc">60세부터 30년 수령 가정</div>
+        </div>
+        <div class="barvalue" style="color:#059669;">2억4,083.5만원</div>
+      </div>
+      <div class="track"><div class="fill greenfill" style="width:100%"></div></div>
     </div>
   </div>
 
-  <div style="height:10px"></div>
-  <div class="ok">현재 확인값: 해약환급금 <b>43,073,384원</b><br>실제 수령액 <b>43,058,384원</b></div>
-  <div class="warn">새 연금안 숫자는<br>월 100만원 공식 설계서를 기준으로<br>월 50만원으로 환산한 추정치입니다.</div>
+  <div class="ok">현재 확인값: 해약환급금 <b>43,073,384원</b>, 실제 수령액 <b>43,058,384원</b></div>
+  <div class="warn">새 연금안 숫자는 월 100만원 공식 설계서를 월 50만원으로 환산한 추정치입니다.</div>
+
   <div class="box">
     <h2>현재 계약 vs 새 연금안</h2>
     <div class="compare">
       <div class="card current">
-        <span class="chip gray">현재 가지고 있는 계약</span>
+        <span class="badge b-gray">현재 계약</span>
         <h3>기존 종신보험</h3>
         <div class="k">지금 해약 시 실수령</div>
         <div class="v gray">4,305.8만원</div>
@@ -134,14 +145,14 @@
         <div class="mini">사망보장, 상속설계 역할</div>
       </div>
       <div class="card new">
-        <span class="chip green">새로 준비하는 안</span>
+        <span class="badge b-green">새 연금안</span>
         <h3>변액연금, 월 50만원</h3>
         <div class="k">60세 기준금액 추정</div>
-        <div class="v green">1억 4,837.5만원</div>
+        <div class="v green">1억4,837.5만원</div>
         <div class="mini">10년 납입, 장기 유지 가정</div>
         <div class="line"></div>
         <div class="k">90세 누적 연금 추정</div>
-        <div class="v green">2억 4,083.5만원</div>
+        <div class="v green">2억4,083.5만원</div>
         <div class="mini">60세부터 30년 수령 가정</div>
       </div>
     </div>
@@ -156,21 +167,11 @@
       <tbody>
         <tr><td>목적</td><td>보장 중심</td><td>노후 연금 중심</td></tr>
         <tr><td>지금 보이는 가치</td><td>실수령 약 4,305.8만원</td><td>미래 연금기준금액이 핵심</td></tr>
-        <tr><td>60세 시점</td><td>연금 기준 자료 없음</td><td>약 1억 4,837.5만원 추정</td></tr>
+        <tr><td>60세 시점</td><td>연금 기준 자료 없음</td><td>약 1억4,837.5만원 추정</td></tr>
         <tr><td>연금 흐름</td><td>현재 자료상 바로 비교 어려움</td><td>연 약 776.5만원 추정</td></tr>
-        <tr><td>90세까지</td><td>현재 자료상 바로 비교 어려움</td><td>약 2억 4,083.5만원 추정</td></tr>
+        <tr><td>90세까지</td><td>현재 자료상 바로 비교 어려움</td><td>약 2억4,083.5만원 추정</td></tr>
       </tbody>
     </table>
-  </div>
-
-  <div class="box">
-    <h2>쉽게 이해하면</h2>
-    <ul>
-      <li>현재 계약은 <b>보장 역할</b>입니다.</li>
-      <li>새 연금안은 <b>60세 이후 생활비 흐름</b>을 만드는 역할입니다.</li>
-      <li>즉, 하나는 보장, 하나는 노후자금입니다.</li>
-      <li>이 제안은 <b>오래 유지할수록</b> 장점이 커집니다.</li>
-    </ul>
   </div>
 
   <div class="foot">윤수현 고객용 비교 자료 · 2026-07-13 기준</div>
