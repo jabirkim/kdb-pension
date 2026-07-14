@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>윤수현 고객 연금기준액 비교</title>
+<title>윤수현 고객 연금액 비교</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
@@ -56,6 +56,8 @@
   table { width:100%; border-collapse:collapse; font-size:13.5px; }
   th, td { padding:10px 8px; text-align:left; border-bottom:1px solid #e5e7eb; vertical-align:top; }
   thead th { background:#e3f3ef; color:#0b6b5f; font-size:12.5px; }
+  .head-old { background:#eef2f7 !important; color:#475569 !important; }
+  .head-new { background:#e8f6f1 !important; color:#0b6b5f !important; }
   .bigline { font-size:20px; font-weight:900; color:#0b6b5f; }
   .note { font-size:12px; color:#7a8794; margin-top:8px; }
   .foot { text-align:center; color:#7a8794; font-size:12px; margin-top:8px; }
@@ -71,87 +73,71 @@
 </head>
 <body>
 <div class="wrap">
-  <h1>윤수현 고객님 연금기준액 비교</h1>
-  <p class="sub">이번 버전은 <b>월 50만원 기준</b>으로, 두 상품을 <b>60세 연금기준액</b> 중심으로 다시 정리했습니다.</p>
+  <h1>윤수현 고객님 연금액 비교</h1>
+  <p class="sub">이번 버전은 <b>60세 연금액</b>과 <b>90세 연금액</b> 비교만 먼저 보이게 정리했습니다.</p>
 
   <div class="hero">
     <div class="hero-top">핵심 결론</div>
-    <div class="hero-main">기존 종신 연금전환 기준액 1.22억</div>
-    <div class="hero-desc">새 변액연금은 60세 연금기준액이 <b>1.48억</b>으로 추정됩니다.<br>즉 연금기준액 기준으로는 새 변액연금이 약 <b>2,614만원</b>, 비율로는 약 <b>21.4%</b> 더 큽니다.</div>
+    <div class="hero-main">60세도, 90세도 변액 쪽 연금액이 더 큽니다.</div>
+    <div class="hero-desc">기존 종신보험 연금전환 예시는 연 488만원대, 새 변액연금 50만원안은 연 776만원대로 비교됩니다.</div>
   </div>
 
-  <div class="ok">기존 종신보험 60세 연금전환 캡처 확인값: 개시시적립액 <b>122,230,273원</b>, 연금액 예시 <b>연 4,882,770원</b></div>
-  <div class="warn">새 변액연금은 월 100만원 공식 설계서를 월 50만원으로 환산한 추정치입니다. 따라서 60세 연금기준액 <b>148,375,000원</b>, 연금액 <b>연 7,765,000원</b>도 추정치입니다.</div>
+  <div class="ok">기존 종신보험 연금전환 캡처 확인값: 60세 연 4,882,770원, 90세 연 4,884,652원</div>
+  <div class="warn">새 변액연금은 월 100만원 공식 설계서를 월 50만원으로 환산한 추정치입니다. 연금액은 60세와 90세 모두 연 약 7,765,000원 기준으로 보았습니다.</div>
 
   <div class="box">
-    <h2>1. 60세 연금기준액 정면 비교</h2>
+    <h2>1. 60세 연금액 비교</h2>
     <div class="compare">
       <div class="card old">
         <span class="chip old">이미 가입한 종신보험</span>
-        <div class="label">60세 연금전환 개시시적립액</div>
-        <div class="value old">1억 2,223만원</div>
-        <div class="meta">캡처 확인값 122,230,273원</div>
-        <div class="track"><div class="fill oldfill" style="width:82.4%"></div></div>
-      </div>
-      <div class="card new">
-        <span class="chip new">앞으로 준비할 변액연금, 월 50만원</span>
-        <div class="label">60세 연금기준액 추정</div>
-        <div class="value new">1억 4,837만원</div>
-        <div class="meta">공식 100만원 설계서의 50% 환산치</div>
-        <div class="track"><div class="fill newfill" style="width:100%"></div></div>
-      </div>
-    </div>
-    <div class="note">막대 길이는 새 변액연금 60세 연금기준액 1억4,837만원을 100으로 놓고 비교했습니다.</div>
-  </div>
-
-  <div class="box">
-    <h2>2. 60세 연금액 비교</h2>
-    <div class="compare">
-      <div class="card old">
-        <span class="chip old">이미 가입한 종신보험</span>
-        <div class="label">연금전환 후 연금액 예시</div>
+        <div class="label">60세 연금전환 연금액</div>
         <div class="value old">연 488만원</div>
-        <div class="meta">60세~63세 연 4,882,770원</div>
+        <div class="meta">실제 캡처값 4,882,770원</div>
         <div class="track"><div class="fill oldfill" style="width:62.9%"></div></div>
       </div>
       <div class="card new">
         <span class="chip new">앞으로 준비할 변액연금, 월 50만원</span>
-        <div class="label">연금액 추정</div>
+        <div class="label">60세 연금액 추정</div>
         <div class="value new">연 776만원</div>
-        <div class="meta">공식 100만원 설계서의 50% 환산치</div>
+        <div class="meta">실제 추정값 7,765,000원</div>
         <div class="track"><div class="fill newfill" style="width:100%"></div></div>
       </div>
     </div>
-    <div class="note">연금액 기준으로는 새 변액연금이 기존 종신 연금전환 예시보다 약 <b>288만원</b>, 비율로는 약 <b>59%</b> 더 큽니다.</div>
+    <div class="note">60세 기준으로는 변액연금이 연 약 <b>288만원</b>, 비율로는 약 <b>59%</b> 더 큽니다.</div>
+  </div>
+
+  <div class="box">
+    <h2>2. 90세 연금액 비교</h2>
+    <div class="compare">
+      <div class="card old">
+        <span class="chip old">이미 가입한 종신보험</span>
+        <div class="label">90세 연금전환 연금액</div>
+        <div class="value old">연 488만원</div>
+        <div class="meta">실제 캡처값 4,884,652원</div>
+        <div class="track"><div class="fill oldfill" style="width:62.9%"></div></div>
+      </div>
+      <div class="card new">
+        <span class="chip new">앞으로 준비할 변액연금, 월 50만원</span>
+        <div class="label">90세 연금액 추정</div>
+        <div class="value new">연 776만원</div>
+        <div class="meta">실적배당 종신연금 지급률 동일 가정</div>
+        <div class="track"><div class="fill newfill" style="width:100%"></div></div>
+      </div>
+    </div>
+    <div class="note">90세 기준으로도 변액연금이 연 약 <b>288만원</b>, 비율로는 약 <b>59%</b> 더 큽니다.</div>
   </div>
 
   <div class="box">
     <h2>3. 한 표로 정리</h2>
     <table>
       <thead>
-        <tr><th>비교 항목</th><th>이미 가입한 종신보험</th><th>앞으로 준비할 변액연금, 월 50만원</th></tr>
+        <tr><th>비교 항목</th><th class="head-old">이미 가입한 종신보험</th><th class="head-new">앞으로 준비할 변액연금, 월 50만원</th></tr>
       </thead>
       <tbody>
-        <tr><td>60세 기준금액</td><td>122,230,273원</td><td>148,375,000원 추정</td></tr>
-        <tr><td>차이</td><td colspan="2"><span class="bigline">변액연금이 약 26,144,727원 더 큼</span></td></tr>
-        <tr><td>60세 연금액</td><td>연 4,882,770원</td><td>연 7,765,000원 추정</td></tr>
-        <tr><td>차이</td><td colspan="2"><span class="bigline">변액연금이 연 약 2,882,230원 더 큼</span></td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="box">
-    <h2>4. 참고, 기존 종신보험 연금전환 예시</h2>
-    <table>
-      <thead>
-        <tr><th>항목</th><th>확인값</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>연금개시일</td><td>2052-12-14, 60세</td></tr>
-        <tr><td>개시시적립액</td><td>122,230,273원</td></tr>
-        <tr><td>연금방식</td><td>종신형 / 정액형(기본형) / 보증기간 10년</td></tr>
-        <tr><td>예시이율</td><td>현재이율 2.05%, 최저보증 2.00%</td></tr>
-        <tr><td>연금액</td><td>60~63세 연 4,882,770원, 64~65세 연 4,883,039원</td></tr>
+        <tr><td>60세 연금액</td><td>4,882,770원</td><td>7,765,000원 추정</td></tr>
+        <tr><td>90세 연금액</td><td>4,884,652원</td><td>7,765,000원 추정</td></tr>
+        <tr><td>연금기준액</td><td>122,230,273원</td><td>148,375,000원 추정</td></tr>
+        <tr><td>60세 기준 차이</td><td colspan="2"><span class="bigline">변액연금이 연 약 2,882,230원 더 큼</span></td></tr>
       </tbody>
     </table>
   </div>
