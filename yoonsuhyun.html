@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>윤수현 고객 비교</title>
+<title>윤수현 고객 연금기준액 비교</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
@@ -11,7 +11,7 @@
     background: #f4f5f7; color: #1f2933; line-height: 1.6;
     padding: 18px 12px 28px; -webkit-text-size-adjust: 100%;
   }
-  .wrap { max-width: 920px; margin: 0 auto; }
+  .wrap { max-width: 860px; margin: 0 auto; }
   h1 { font-size: 22px; color: #0b6b5f; margin-bottom: 6px; }
   h2 { font-size: 16px; color: #0b6b5f; margin-bottom: 10px; }
   .sub { color: #5a6b7b; font-size: 13px; margin-bottom: 14px; }
@@ -31,152 +31,129 @@
   }
   .ok { background:#eaf6ef; border:1px solid #bfe3cd; color:#1a7a4f; }
   .warn { background:#fff8e6; border:1px solid #f0e0a8; color:#7a5b00; }
+  .compare { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  .card {
+    border-radius:16px; padding:14px; border:1px solid #e5e7eb; background:#fff;
+    min-width:0;
+  }
+  .card.old { border-top:6px solid #64748b; }
+  .card.new { border-top:6px solid #0b6b5f; }
+  .chip {
+    display:inline-block; font-size:11.5px; font-weight:800; border-radius:999px;
+    padding:4px 8px; margin-bottom:8px;
+  }
+  .chip.old { background:#eef2f7; color:#475569; }
+  .chip.new { background:#e8f6f1; color:#0b6b5f; }
+  .label { font-size:12px; color:#637282; margin-bottom:4px; }
+  .value { font-size:30px; font-weight:900; line-height:1.1; letter-spacing:-0.03em; word-break:keep-all; }
+  .value.old { color:#475569; }
+  .value.new { color:#0b6b5f; }
+  .meta { font-size:11.5px; color:#7a8794; margin-top:5px; }
+  .track { width:100%; height:18px; background:#e6eaef; border-radius:999px; overflow:hidden; margin-top:12px; }
+  .fill { height:100%; border-radius:999px; }
+  .oldfill { background:linear-gradient(90deg,#64748b,#94a3b8); }
+  .newfill { background:linear-gradient(90deg,#059669,#34d399); }
   table { width:100%; border-collapse:collapse; font-size:13.5px; }
   th, td { padding:10px 8px; text-align:left; border-bottom:1px solid #e5e7eb; vertical-align:top; }
   thead th { background:#e3f3ef; color:#0b6b5f; font-size:12.5px; }
-  .head-old { background:#eef2f7 !important; color:#475569 !important; }
-  .head-new { background:#e8f6f1 !important; color:#0b6b5f !important; }
-  .big { font-size:18px; font-weight:900; line-height:1.2; letter-spacing:-0.02em; }
-  .big.old { color:#475569; }
-  .big.new { color:#0b6b5f; }
-  .mini { font-size:11.5px; color:#7a8794; margin-top:4px; }
+  .bigline { font-size:20px; font-weight:900; color:#0b6b5f; }
   .note { font-size:12px; color:#7a8794; margin-top:8px; }
   .foot { text-align:center; color:#7a8794; font-size:12px; margin-top:8px; }
   @media (max-width:720px) {
     h1 { font-size:20px; }
     .hero-main { font-size:22px; }
     .hero-desc { font-size:13px; }
-    .big { font-size:16px; }
-    th, td { padding:9px 6px; font-size:12.5px; }
+    .compare { grid-template-columns:1fr; }
+    .value { font-size:26px; }
+    .bigline { font-size:18px; }
   }
 </style>
 </head>
 <body>
 <div class="wrap">
-  <h1>윤수현 고객님 비교</h1>
-  <p class="sub">현재 / 60세 / 90세로 나누고, <b>종신보험 사망시</b>, <b>변액 연금기준금액</b>, 그리고 <b>해약환급금</b>을 따로 붙였습니다.</p>
+  <h1>윤수현 고객님 연금기준액 비교</h1>
+  <p class="sub">이번 버전은 <b>월 50만원 기준</b>으로, 두 상품을 <b>60세 연금기준액</b> 중심으로 다시 정리했습니다.</p>
 
   <div class="hero">
-    <div class="hero-top">제일 위 핵심</div>
-    <div class="hero-main">종신 사망시 vs 변액 연금기준금액</div>
-    <div class="hero-desc">해약환급금은 별도 기준으로 아래 표에 같이 넣었습니다. 현재 기준 수치와 60세, 90세 기준을 한 표에서 바로 비교할 수 있게 정리했습니다.</div>
+    <div class="hero-top">핵심 결론</div>
+    <div class="hero-main">기존 종신 연금전환 기준액 1.22억</div>
+    <div class="hero-desc">새 변액연금은 60세 연금기준액이 <b>1.48억</b>으로 추정됩니다.<br>즉 연금기준액 기준으로는 새 변액연금이 약 <b>2,614만원</b>, 비율로는 약 <b>21.4%</b> 더 큽니다.</div>
   </div>
 
-  <div class="ok">현재 확보값: 기존 종신보험 해약환급금 <b>43,075,024원</b>, 실제 수령액 <b>43,059,774원</b></div>
-  <div class="warn">새 변액연금은 월 100만원 공식 설계서를 월 50만원으로 환산한 추정치입니다. 기존 종신보험은 추가 캡처상 <b>2060-12 해약환급금 150,921,489원(환급률 220.62%)</b>까지 확인됐습니다. 다만 이것은 60세가 아니라 그 이후 시점 예시입니다.</div>
+  <div class="ok">기존 종신보험 60세 연금전환 캡처 확인값: 개시시적립액 <b>122,230,273원</b>, 연금액 예시 <b>연 4,882,770원</b></div>
+  <div class="warn">새 변액연금은 월 100만원 공식 설계서를 월 50만원으로 환산한 추정치입니다. 따라서 60세 연금기준액 <b>148,375,000원</b>, 연금액 <b>연 7,765,000원</b>도 추정치입니다.</div>
 
   <div class="box">
-    <h2>추가 확인, 기존 종신보험 연금전환 예시</h2>
-    <table>
-      <thead>
-        <tr><th>항목</th><th>기존 종신보험 연금전환 캡처값</th><th>새 변액연금 비교값</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>연금개시일</td><td>2052-12-14, 60세</td><td>2052~2053년대 60세 개시 가정</td></tr>
-        <tr><td>개시시 적립액 / 기준금액</td><td><b>122,230,273원</b></td><td><b>148,375,000원</b> 추정</td></tr>
-        <tr><td>연금지급방식</td><td>종신형, 정액형(기본형), 보증기간 10년</td><td>실적배당 종신연금</td></tr>
-        <tr><td>예시이율/기준이율</td><td>현재이율 2.05%, 최저보증이율 2.00%</td><td>연금개시 전 기준금액 산식 반영</td></tr>
-        <tr><td>연금액 예시</td><td><b>연 4,882,770원</b> (60~63세), <b>연 4,883,039원</b> (64~65세), <b>연 4,884,652원</b> (89~91세), <b>연 4,884,921원</b> (92~94세)</td><td><b>연 7,765,000원</b> 추정</td></tr>
-      </tbody>
-    </table>
-    <div class="note">즉, 기존 종신보험도 60세에 연금전환이 가능하지만, 90세 전후 예시까지 봐도 연금액은 연 488만원대 수준이고, 현재 캡처 기준으로는 개시시 적립액과 연금액 예시 모두 새 변액연금 쪽이 더 큽니다.</div>
-  </div>
-
-  <div class="box">
-    <h2>시기별 한 번에 비교</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>시기</th>
-          <th class="head-old">종신보험 사망시</th>
-          <th class="head-new">변액 연금기준금액</th>
-          <th class="head-old">종신보험 해약환급금</th>
-          <th class="head-new">변액 해약환급금(개시 전)</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><b>현재</b></td>
-          <td>
-            <div class="big old">약 4,510만원 + α</div>
-            <div class="mini">기본 4,100만원 + 체증 약 410만원, 가산적립액 제외 단순치</div>
-          </td>
-          <td>
-            <div class="big new">가입 전</div>
-            <div class="mini">아직 연금기준금액 형성 전</div>
-          </td>
-          <td>
-            <div class="big old">4,306.0만원</div>
-            <div class="mini">현재 실제 수령액 기준</div>
-          </td>
-          <td>
-            <div class="big new">가입 전</div>
-            <div class="mini">해약환급금 없음</div>
-          </td>
-        </tr>
-        <tr>
-          <td><b>60세</b></td>
-          <td>
-            <div class="big old">약 1.03억 + α</div>
-            <div class="mini">기본 4,100만원 + 체증 약 6,150만원</div>
-          </td>
-          <td>
-            <div class="big new">약 1.48억</div>
-            <div class="mini">60세 연금기준금액 1억4,837.5만원 추정</div>
-          </td>
-          <td>
-            <div class="big old">약 0.68억 ~ 0.93억</div>
-            <div class="mini">현재 예시상 2029-12 해약환급금 54,063,279원, 환급률 105.19%</div>
-          </td>
-          <td>
-            <div class="big new">약 0.23억 ~ 0.34억</div>
-            <div class="mini">연금개시 직전 기준 예시, 2.5% 가정 시 2,340만원, 3.75% 가정 시 3,415.5만원</div>
-          </td>
-        </tr>
-        <tr>
-          <td><b>90세</b></td>
-          <td>
-            <div class="big old">약 1.64억 + α</div>
-            <div class="mini">기본 4,100만원 + 체증 약 1억2,300만원</div>
-          </td>
-          <td>
-            <div class="big new">누적연금 약 2.41억</div>
-            <div class="mini">60세부터 30년 수령 가정, 연금기준금액 자체보다는 누적연금 의미가 큼</div>
-          </td>
-          <td>
-            <div class="big old">추가 자료 필요</div>
-            <div class="mini">90세 해약환급금 정확치는 현재 자료로 미확인</div>
-          </td>
-          <td>
-            <div class="big new">해당 없음</div>
-            <div class="mini">연금 개시 후에는 해약 비교 기준으로 보기 어려움</div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <div class="note">핵심 해석: 60세 기준으로 보면, <b>사망시/연금기준금액</b>은 변액 쪽이 더 크고, <b>해약환급금</b>은 기존 종신보험 쪽이 더 크게 보입니다. 현재 시스템 예시에서도 기존 종신보험은 2029-12 해약환급금 54,063,279원, 환급률 105.19%까지 확인됩니다. 변액 해약환급금은 <b>연금개시 전 기준</b>으로만 보는 게 맞습니다.</div>
+    <h2>1. 60세 연금기준액 정면 비교</h2>
+    <div class="compare">
+      <div class="card old">
+        <span class="chip old">이미 가입한 종신보험</span>
+        <div class="label">60세 연금전환 개시시적립액</div>
+        <div class="value old">1억 2,223만원</div>
+        <div class="meta">캡처 확인값 122,230,273원</div>
+        <div class="track"><div class="fill oldfill" style="width:82.4%"></div></div>
+      </div>
+      <div class="card new">
+        <span class="chip new">앞으로 준비할 변액연금, 월 50만원</span>
+        <div class="label">60세 연금기준액 추정</div>
+        <div class="value new">1억 4,837만원</div>
+        <div class="meta">공식 100만원 설계서의 50% 환산치</div>
+        <div class="track"><div class="fill newfill" style="width:100%"></div></div>
+      </div>
+    </div>
+    <div class="note">막대 길이는 새 변액연금 60세 연금기준액 1억4,837만원을 100으로 놓고 비교했습니다.</div>
   </div>
 
   <div class="box">
-    <h2>추가 확인된 종신보험 해약환급금 예시</h2>
+    <h2>2. 60세 연금액 비교</h2>
+    <div class="compare">
+      <div class="card old">
+        <span class="chip old">이미 가입한 종신보험</span>
+        <div class="label">연금전환 후 연금액 예시</div>
+        <div class="value old">연 488만원</div>
+        <div class="meta">60세~63세 연 4,882,770원</div>
+        <div class="track"><div class="fill oldfill" style="width:62.9%"></div></div>
+      </div>
+      <div class="card new">
+        <span class="chip new">앞으로 준비할 변액연금, 월 50만원</span>
+        <div class="label">연금액 추정</div>
+        <div class="value new">연 776만원</div>
+        <div class="meta">공식 100만원 설계서의 50% 환산치</div>
+        <div class="track"><div class="fill newfill" style="width:100%"></div></div>
+      </div>
+    </div>
+    <div class="note">연금액 기준으로는 새 변액연금이 기존 종신 연금전환 예시보다 약 <b>288만원</b>, 비율로는 약 <b>59%</b> 더 큽니다.</div>
+  </div>
+
+  <div class="box">
+    <h2>3. 한 표로 정리</h2>
     <table>
       <thead>
-        <tr><th>예시년도</th><th>이미납입보험료</th><th>해약환급금</th><th>환급률</th></tr>
+        <tr><th>비교 항목</th><th>이미 가입한 종신보험</th><th>앞으로 준비할 변액연금, 월 50만원</th></tr>
       </thead>
       <tbody>
-        <tr><td>2060-12</td><td>68,409,600원</td><td>150,921,489원</td><td>220.62%</td></tr>
-        <tr><td>2061-12</td><td>68,409,600원</td><td>154,918,333원</td><td>226.46%</td></tr>
-        <tr><td>2062-12</td><td>68,409,600원</td><td>159,009,318원</td><td>232.44%</td></tr>
-        <tr><td>2063-12</td><td>68,409,600원</td><td>163,198,086원</td><td>238.57%</td></tr>
-        <tr><td>2064-12</td><td>68,409,600원</td><td>167,487,201원</td><td>244.83%</td></tr>
-        <tr><td>2084-12</td><td>68,409,600원</td><td>266,871,361원</td><td>390.11%</td></tr>
-        <tr><td>2085-12</td><td>68,409,600원</td><td>272,514,015원</td><td>398.36%</td></tr>
-        <tr><td>2086-12</td><td>68,409,600원</td><td>278,191,447원</td><td>406.65%</td></tr>
-        <tr><td>2087-12</td><td>68,409,600원</td><td>283,885,390원</td><td>414.98%</td></tr>
-        <tr><td>2088-12</td><td>68,409,600원</td><td>289,599,709원</td><td>423.34%</td></tr>
+        <tr><td>60세 기준금액</td><td>122,230,273원</td><td>148,375,000원 추정</td></tr>
+        <tr><td>차이</td><td colspan="2"><span class="bigline">변액연금이 약 26,144,727원 더 큼</span></td></tr>
+        <tr><td>60세 연금액</td><td>연 4,882,770원</td><td>연 7,765,000원 추정</td></tr>
+        <tr><td>차이</td><td colspan="2"><span class="bigline">변액연금이 연 약 2,882,230원 더 큼</span></td></tr>
       </tbody>
     </table>
-    <div class="note">이 예시는 시스템 화면에서 직접 확인된 값입니다. 2060년대뿐 아니라 2080년대 예시까지 확인됐고, 장기 유지 시 해약환급금이 크게 올라가는 흐름을 보여줍니다. 60세 기준값은 아니므로 참고용으로 분리했습니다.</div>
+  </div>
+
+  <div class="box">
+    <h2>4. 참고, 기존 종신보험 연금전환 예시</h2>
+    <table>
+      <thead>
+        <tr><th>항목</th><th>확인값</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>연금개시일</td><td>2052-12-14, 60세</td></tr>
+        <tr><td>개시시적립액</td><td>122,230,273원</td></tr>
+        <tr><td>연금방식</td><td>종신형 / 정액형(기본형) / 보증기간 10년</td></tr>
+        <tr><td>예시이율</td><td>현재이율 2.05%, 최저보증 2.00%</td></tr>
+        <tr><td>연금액</td><td>60~63세 연 4,882,770원, 64~65세 연 4,883,039원</td></tr>
+      </tbody>
+    </table>
   </div>
 
   <div class="foot">윤수현 고객용 비교 자료 · 2026-07-14 기준</div>
